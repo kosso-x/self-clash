@@ -10,6 +10,8 @@ ENV http_proxy="http://localhost:7890/" \
     NO_PROXY="localhost,localhost"
 
 WORKDIR /clash
-# COPY /dok_pros/clash-app/.config ~/.config
+COPY .config /
 
-CMD ["./clash"]
+CMD ["/clash/clash", "-d", ".", "-secret", "sdata123."]
+
+# docker run -d -it -p 7890:7890 -p 9090:9090 --name clash clash:v1
